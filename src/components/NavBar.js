@@ -66,7 +66,7 @@ const Hamburger = styled.div`
   ::before,
   ::after {
     width: 30px;
-    height: 3px;
+    height: 3.5px;
     background-color: #111;
     content: "";
     position: absolute;
