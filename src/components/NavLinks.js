@@ -28,8 +28,7 @@ const NavLinks = ({setTheme}) => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/about">About</NavLink>
       <NavLink to="/contact">Contact</NavLink>
-      <NavLink to="/books">Books</NavLink>
-      <button
+            <button
         onClick={setTheme}
       >
         Toggle Theme

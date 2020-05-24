@@ -14,10 +14,6 @@ export default function BlogPost({ data }) {
           style={{ maxHeight: 450 }}
         />
         <h1>{post.title}</h1>
-
-        {post.categories.map((category, i) => (
-          <h3 key={i}>{category.name}</h3>
-        ))}
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     </Layout>

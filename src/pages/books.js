@@ -6,8 +6,7 @@ import Menu from "../components/Menu"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 
-
-const IndexPage = ({ data }) => {
+const BooksPage = ({ data }) => {
   const BlogLink = styled(Link)`
     text-decoration: none;
     color: ${props => (props.theme.mode === "dark" ? "#EEE" : "black")};
@@ -17,8 +16,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="home" />
-      <Menu/>
-      <div  >
+      <Menu />
+      <div>
         {data.allWordpressPost.edges.map(({ node }) => (
           <div
             key={node.featured_media.localFile.childImageSharp.sizes.src}
@@ -28,7 +27,7 @@ const IndexPage = ({ data }) => {
               to={node.slug}
               style={{
                 display: "flex",
-                
+
                 textDecoration: "none",
               }}
             >
@@ -42,16 +41,7 @@ const IndexPage = ({ data }) => {
                   dangerouslySetInnerHTML={{ __html: node.title }}
                   style={{ marginBottom: 0 }}
                 />
-                {node.categories.map((category, i) => (
-                  <p
-                    key={
-                      i
-                    }
-                  >
-                    {category.name}
-                  </p>
-                ))}
-                <p style={{ margin: 0, color: "grey" }}>{node.date}</p>
+                              <p style={{ margin: 0, color: "grey" }}>{node.date}</p>
                 <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
               </div>
             </BlogLink>
@@ -63,30 +53,33 @@ const IndexPage = ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query {
-    allWordpressPost(sort: { fields: [date] }) {
-      edges {
-        node {
-          title
-          excerpt
-          slug
-          date(formatString: "MMMM DD, YYYY")
-          categories {
-            name
-          }
-          featured_media {
-            localFile {
-              childImageSharp {
-                sizes(maxWidth: 1200) {
-                  ...GatsbyImageSharpSizes
-                  src
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-export default IndexPage
+         query {
+           allWordpressPost(
+             sort: { fields: [date] }
+             filter: { categories: { elemMatch: { name: { eq: "Books" } } } }
+           ) {
+             edges {
+               node {
+                 title
+                 excerpt
+                 slug
+                 date(formatString: "MMMM DD, YYYY")
+                 categories {
+                   name
+                 }
+                 featured_media {
+                   localFile {
+                     childImageSharp {
+                       sizes(maxWidth: 1200) {
+                         ...GatsbyImageSharpSizes
+                         src
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+       `
+export default BooksPage
