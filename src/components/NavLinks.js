@@ -22,15 +22,18 @@ const NavLink = styled(Link)`
   }
 `
 
-const NavLinks = () => {
+const NavLinks = ({setTheme}) => {
   return (
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/about">About</NavLink>
       <NavLink to="/contact">Contact</NavLink>
       <NavLink to="/books">Books</NavLink>
-      <NavLink to="/movies">Movies</NavLink>
-      <NavLink to="/travel">Travel</NavLink>
+      <button
+        onClick={setTheme}
+      >
+        Toggle Theme
+      </button>
     </>
   )
 }

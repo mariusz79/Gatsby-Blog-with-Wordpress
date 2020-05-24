@@ -86,22 +86,25 @@ const Hamburger = styled.div`
   }
 `
 
-const NavBar = () => {
+const NavBar = ({setTheme}) => {
   const [openNavBar, setOpenNavBar] = useState(false)
 
   return (
     <Navigation>
       <Logo />
-      <Toggle openNavBar={openNavBar} onClick={() => setOpenNavBar(!openNavBar)}>
+      <Toggle
+        openNavBar={openNavBar}
+        onClick={() => setOpenNavBar(!openNavBar)}
+      >
         {openNavBar ? <Hamburger open /> : <Hamburger />}
       </Toggle>
       {openNavBar ? (
         <NavContainer>
-          <NavLinks />
+          <NavLinks setTheme={setTheme} />
         </NavContainer>
       ) : (
         <NavContainer open>
-          <NavLinks />
+          <NavLinks setTheme={setTheme} />
         </NavContainer>
       )}
     </Navigation>
