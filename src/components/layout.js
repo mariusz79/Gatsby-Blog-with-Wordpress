@@ -20,10 +20,11 @@ const Layout = ({ children }) => {
           margin: `0 auto`,
           maxWidth: 960,
           padding: `0 1.0875rem 1.45rem`,
+          height: `100vh`,
         }}
       >
         <main>{children}</main>
-        <footer>
+        <footer style={{margin: `auto 0 0 0 `}}>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
