@@ -32,8 +32,14 @@ export default function IndexPage({ data }) {
                   dangerouslySetInnerHTML={{ __html: node.title }}
                   style={{ marginBottom: 0 }}
                 />
-                {node.categories.map(category => (
-                  <p>{category.name}</p>
+                {node.categories.map((category, i) => (
+                  <p
+                    key={
+                      i
+                    }
+                  >
+                    {category.name}
+                  </p>
                 ))}
                 <p style={{ margin: 0, color: "grey" }}>{node.date}</p>
                 <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
