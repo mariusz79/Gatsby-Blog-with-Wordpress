@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
 
   const GlobalStyle = createGlobalStyle`
       body {
-        background-color: ${props =>
+                background-color: ${props =>
           props.theme.mode === "dark" ? "black" : "white"};
         color: ${props => (props.theme.mode === "dark" ? "#EEE" : "black")};
       }

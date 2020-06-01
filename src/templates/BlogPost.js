@@ -28,7 +28,7 @@ export const query = graphql`
           content
           excerpt
           categories {
-            name
+            slug
           }
           featured_media {
             localFile {

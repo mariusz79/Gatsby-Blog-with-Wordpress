@@ -24,7 +24,7 @@ const TravelPage = ({ data }) => {
             style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}
           >
             <BlogLink
-              to={node.slug}
+              to={node.categories[0].slug + "/" + node.slug}
               style={{
                 display: "flex",
 
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
           slug
           date(formatString: "MMMM DD, YYYY")
           categories {
-            name
+            slug
           }
           featured_media {
             localFile {

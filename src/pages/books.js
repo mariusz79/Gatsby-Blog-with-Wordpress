@@ -24,7 +24,7 @@ const BooksPage = ({ data }) => {
             style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}
           >
             <BlogLink
-              to={node.slug}
+              to={node.categories[0].slug + "/" + node.slug}
               style={{
                 display: "flex",
 
@@ -41,7 +41,7 @@ const BooksPage = ({ data }) => {
                   dangerouslySetInnerHTML={{ __html: node.title }}
                   style={{ marginBottom: 0 }}
                 />
-                              <p style={{ margin: 0, color: "grey" }}>{node.date}</p>
+                <p style={{ margin: 0, color: "grey" }}>{node.date}</p>
                 <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
               </div>
             </BlogLink>
@@ -53,33 +53,33 @@ const BooksPage = ({ data }) => {
 }
 
 export const pageQuery = graphql`
-         query {
-           allWordpressPost(
-             sort: { fields: [date] }
-             filter: { categories: { elemMatch: { name: { eq: "Books" } } } }
-           ) {
-             edges {
-               node {
-                 title
-                 excerpt
-                 slug
-                 date(formatString: "MMMM DD, YYYY")
-                 categories {
-                   name
-                 }
-                 featured_media {
-                   localFile {
-                     childImageSharp {
-                       sizes(maxWidth: 1200) {
-                         ...GatsbyImageSharpSizes
-                         src
-                       }
-                     }
-                   }
-                 }
-               }
-             }
-           }
-         }
-       `
+  query {
+    allWordpressPost(
+      sort: { fields: [date] }
+      filter: { categories: { elemMatch: { name: { eq: "Books" } } } }
+    ) {
+      edges {
+        node {
+          title
+          excerpt
+          slug
+          date(formatString: "MMMM DD, YYYY")
+          categories {
+            slug
+          }
+          featured_media {
+            localFile {
+              childImageSharp {
+                sizes(maxWidth: 1200) {
+                  ...GatsbyImageSharpSizes
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 export default BooksPage

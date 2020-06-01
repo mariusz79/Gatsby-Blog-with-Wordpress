@@ -13,7 +13,7 @@ const LogoContainer = styled.div`
 const Logo = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "gatsby-icon" }, extension: { eq: "png" }) {
+      file(name: { eq: "Logo" }, extension: { eq: "png" }) {
         childImageSharp {
           fixed(height: 50) {
             ...GatsbyImageSharpFixed

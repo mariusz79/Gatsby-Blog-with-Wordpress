@@ -6,7 +6,6 @@ import Menu from "../components/Menu"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 
-
 const IndexPage = ({ data }) => {
   const BlogLink = styled(Link)`
     text-decoration: none;
@@ -17,18 +16,17 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="home" />
-      <Menu/>
-      <div  >
+      <Menu />
+      <div>
         {data.allWordpressPost.edges.map(({ node }) => (
           <div
             key={node.featured_media.localFile.childImageSharp.sizes.src}
             style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}
           >
             <BlogLink
-              to={node.slug}
+              to={node.categories[0].slug + "/" + node.slug}
               style={{
                 display: "flex",
-                
                 textDecoration: "none",
               }}
             >
@@ -42,15 +40,7 @@ const IndexPage = ({ data }) => {
                   dangerouslySetInnerHTML={{ __html: node.title }}
                   style={{ marginBottom: 0 }}
                 />
-                {node.categories.map((category, i) => (
-                  <p
-                    key={
-                      i
-                    }
-                  >
-                    {category.name}
-                  </p>
-                ))}
+                {node.categories[0].name}
                 <p style={{ margin: 0, color: "grey" }}>{node.date}</p>
                 <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
               </div>
@@ -72,7 +62,7 @@ export const pageQuery = graphql`
           slug
           date(formatString: "MMMM DD, YYYY")
           categories {
-            name
+            slug
           }
           featured_media {
             localFile {

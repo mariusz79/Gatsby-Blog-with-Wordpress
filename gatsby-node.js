@@ -13,6 +13,9 @@ exports.createPages = ({ graphql, actions }) => {
       allWordpressPost(sort: { fields: [date] }) {
         edges {
           node {
+            categories {
+              slug
+            }
             slug
           }
         }
@@ -21,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
   `).then(result => {
     result.data.allWordpressPost.edges.forEach(({ node }) => {
       createPage({
-        path: node.slug,
+        path: `/${node.categories[0].slug}/${node.slug}`,
         component: path.resolve(`./src/templates/BlogPost.js`),
         context: {
           // This is the $slug variable
