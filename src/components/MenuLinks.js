@@ -10,7 +10,7 @@ const MenuLinks = () => {
     position: relative;
 
     :hover {
-      color: darkblue;
+      color: red;
     }
   `
 

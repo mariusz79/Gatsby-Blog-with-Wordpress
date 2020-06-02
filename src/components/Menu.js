@@ -8,6 +8,7 @@ const Menu = () => {
     justify-content: space-around;
     border-top: 1px solid;
     border-bottom: 1px solid;
+    margin-bottom: 2rem;
   `
 
   return (

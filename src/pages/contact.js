@@ -12,7 +12,9 @@ const Contact = () => {
           alignItems: "center",
         }}
       >
-        <h1>GET IN TOUCH</h1>
+        <h1 style={{ margin: "3rem 0", textDecoration: "underline red" }}>
+          GET IN TOUCH
+        </h1>
         <ContactForm />
       </div>
     </Layout>

@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import Menu from "../components/Menu"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
@@ -7,6 +8,7 @@ export default function BlogPost({ data }) {
   const post = data.allWordpressPost.edges[0].node
   return (
     <Layout>
+      <Menu />
       <div>
         <Img
           sizes={post.featured_media.localFile.childImageSharp.fluid}
@@ -35,9 +37,9 @@ export const query = graphql`
                  featured_media {
                    localFile {
                      childImageSharp {
-                       fluid(maxWidth: 600) {
+                       fluid(maxWidth: 1200) {
                          ...GatsbyImageSharpFluid
-                         ...GatsbyImageSharpFluidLimitPresentationSize
+                          
                        }
                      }
                    }

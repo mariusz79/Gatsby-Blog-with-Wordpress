@@ -11,6 +11,7 @@ import storage from "local-storage-fallback"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import NavBar from "../components/NavBar"
 import Hero from "../components/Hero"
+import Footer from "./Footer"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -32,7 +33,7 @@ const Layout = ({ children }) => {
       `
   return (
     <>
-      <Hero/>
+      <Hero />
       <NavBar
         setTheme={e =>
           setTheme(theme.mode === "dark" ? { mode: "light" } : { mode: "dark" })
@@ -44,23 +45,20 @@ const Layout = ({ children }) => {
           <div
             style={{
               margin: `0 auto`,
-              maxWidth: 1980,
+              maxWidth: 1280,
               padding: `0 1.0875rem 1.45rem`,
             }}
           >
             <main
               style={{
-                minHeight: `100vh`, height: '100%'
+                minHeight: `100vh`,
+                height: "100%",
               }}
             >
               {children}
             </main>
-            <footer style={{   }}>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </footer>
           </div>
+          <Footer/>
         </>
       </ThemeProvider>
     </>

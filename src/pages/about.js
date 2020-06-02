@@ -32,7 +32,7 @@ const About = () => {
 
     return (
       <Layout>
-        <h1 style={{ textAlign: "center" }}>About me</h1>
+        <h1 style={{ textAlign: "center", margin: "3rem 0", textDecoration: 'underline red' }}>ABOUT ME</h1>
         <AboutSection>
           <Img fluid={data.file.childImageSharp.fluid} alt="about" />
           <div>
@@ -50,7 +50,6 @@ const About = () => {
               condimentum ante ac, maximus mi.
             </p>
           </div>
-          <p></p>
         </AboutSection>
       </Layout>
     )
