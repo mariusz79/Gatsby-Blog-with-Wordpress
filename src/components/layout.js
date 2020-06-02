@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import storage from "local-storage-fallback"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import NavBar from "../components/NavBar"
+import Hero from "../components/Hero"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -31,6 +32,7 @@ const Layout = ({ children }) => {
       `
   return (
     <>
+      <Hero/>
       <NavBar
         setTheme={e =>
           setTheme(theme.mode === "dark" ? { mode: "light" } : { mode: "dark" })
@@ -42,18 +44,18 @@ const Layout = ({ children }) => {
           <div
             style={{
               margin: `0 auto`,
-              maxWidth: 960,
+              maxWidth: 1980,
               padding: `0 1.0875rem 1.45rem`,
             }}
           >
             <main
               style={{
-                height: `100vh`,
+                minHeight: `100vh`, height: '100%'
               }}
             >
               {children}
             </main>
-            <footer style={{ margin: `auto 0 0 0 ` }}>
+            <footer style={{   }}>
               © {new Date().getFullYear()}, Built with
               {` `}
               <a href="https://www.gatsbyjs.org">Gatsby</a>

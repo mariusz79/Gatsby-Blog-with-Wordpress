@@ -6,18 +6,18 @@ import styled from "styled-components"
 const Navigation = styled.nav`
   height: 10vh;
   display: flex;
-  background-color: #fff;
-  position: relative;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   justify-content: space-between;
   text-transform: uppercase;
-  border-bottom: 2px solid #33333320;
   margin: 0 auto;
   padding: 0 5vw;
   z-index: 2;
   align-self: center;
 
   @media (max-width: 768px) {
-    position: sticky;
     height: 8vh;
     top: 0;
     left: 0;
@@ -52,7 +52,6 @@ const NavContainer = styled.div`
     top: 8vh;
     left: ${props => (props.open ? "-100%" : "0")};
   }
-
 `
 const Hamburger = styled.div`
   background-color: #111;
@@ -86,7 +85,7 @@ const Hamburger = styled.div`
   }
 `
 
-const NavBar = ({setTheme}) => {
+const NavBar = ({ setTheme }) => {
   const [openNavBar, setOpenNavBar] = useState(false)
 
   return (

@@ -1,5 +1,5 @@
 import React from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 import { Link } from "gatsby"
 
 const NavLink = styled(Link)`
@@ -12,7 +12,7 @@ const NavLink = styled(Link)`
   position: relative;
 
   :hover {
-    color: darkblue;
+    color: red;
   }
 
   @media (max-width: 768px) {
@@ -21,18 +21,25 @@ const NavLink = styled(Link)`
     z-index: 6;
   }
 `
-
-const NavLinks = ({setTheme}) => {
+const ToggleButton = styled.button`
+  border-radius: 8px;
+  outline: none;
+  color: black;
+  border: 2px solid gray;
+  transition: all 200ms ease-in;
+  :hover {
+    color: white;
+    background-color: darkgray;
+    border: 2px solid black;
+  }
+`
+const NavLinks = ({ setTheme }) => {
   return (
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/about">About</NavLink>
       <NavLink to="/contact">Contact</NavLink>
-            <button
-        onClick={setTheme}
-      >
-        Toggle Theme
-      </button>
+      <ToggleButton onClick={setTheme}>Toggle theme</ToggleButton>
     </>
   )
 }
