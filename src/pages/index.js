@@ -68,7 +68,7 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
          query {
-           allWordpressPost(sort: { fields: [date] }) {
+           allWordpressPost(sort: { fields: [date], order: DESC }) {
              edges {
                node {
                  title

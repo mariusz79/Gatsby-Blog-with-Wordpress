@@ -69,7 +69,7 @@ const TravelPage = ({ data }) => {
 export const pageQuery = graphql`
          query {
            allWordpressPost(
-             sort: { fields: [date] }
+             sort: { fields: [date], order: DESC }
              filter: { categories: { elemMatch: { name: { eq: "Travel" } } } }
            ) {
              edges {

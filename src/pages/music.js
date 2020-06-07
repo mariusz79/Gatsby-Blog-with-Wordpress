@@ -69,7 +69,7 @@ const MusicPage = ({ data }) => {
 export const pageQuery = graphql`
          query {
            allWordpressPost(
-             sort: { fields: [date] }
+             sort: { fields: [date], order: DESC }
              filter: { categories: { elemMatch: { name: { eq: "Music" } } } }
            ) {
              edges {
