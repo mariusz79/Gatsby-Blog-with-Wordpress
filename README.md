@@ -26,4 +26,4 @@ The WordPress where the content is managed lives here: [https://virtueless-capac
 
 ## Gatsby Site
 
-The Live Gatsby site is at: )
+The Live Gatsby site is at: [https://gatsby-wordpress-minimo.netlify.app/](https://gatsby-wordpress-minimo.netlify.app/)

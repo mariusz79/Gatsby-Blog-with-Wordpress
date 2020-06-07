@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
       body {
                 background-color: ${props =>
-          props.theme.mode === "dark" ? "black" : "white"};
+                  props.theme.mode === "dark" ? "black" : "white"};
         color: ${props => (props.theme.mode === "dark" ? "#EEE" : "black")};
       }
       `
@@ -58,7 +58,7 @@ const Layout = ({ children }) => {
               {children}
             </main>
           </div>
-          <Footer/>
+          <Footer />
         </>
       </ThemeProvider>
     </>

@@ -34,9 +34,6 @@ body {
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
-  -webkit-font-kerning: normal;
-          font-kerning: normal;
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
+  
 }
 html, body {  overflow-x: hidden !important; }
